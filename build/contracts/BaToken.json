@@ -1,0 +1,362 @@
+{
+  "contractName": "BaToken",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x18160ddd"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor",
+      "signature": "constructor"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50620f4240600081905550609e806100296000396000f3fe608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a723058209f17b26d589e832120dd9b27a0e72a694ad8ee3bfec2aa29ff0f5b53617db5c70029",
+  "deployedBytecode": "0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318160ddd146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a723058209f17b26d589e832120dd9b27a0e72a694ad8ee3bfec2aa29ff0f5b53617db5c70029",
+  "sourceMap": "95:117:0:-;;;152:55;8:9:-1;5:2;;;30:1;27;20:12;5:2;152:55:0;194:7;180:11;:21;;;;95:117;;;;;;",
+  "deployedSourceMap": "95:117:0:-;;;;;;;;;;;;;;;;;;;;;;;;119:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;119:26:0;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity >=0.4.21 <0.6.0;\r\n\r\n\r\n/**\r\n * The BaToken contract does this and that...\r\n */\r\ncontract BaToken {\r\n\r\n  uint256 public totalSupply;\r\n\r\n  constructor () public{\r\n    totalSupply = 1000000;\r\n  }\r\n\r\n}\r\n",
+  "sourcePath": "C:/Users/wilpa/Documents/projects/Solidity/token_sale/contracts/BaToken.sol",
+  "ast": {
+    "absolutePath": "/C/Users/wilpa/Documents/projects/Solidity/token_sale/contracts/BaToken.sol",
+    "exportedSymbols": {
+      "BaToken": [
+        12
+      ]
+    },
+    "id": 13,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "The BaToken contract does this and that...\r",
+        "fullyImplemented": true,
+        "id": 12,
+        "linearizedBaseContracts": [
+          12
+        ],
+        "name": "BaToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 3,
+            "name": "totalSupply",
+            "nodeType": "VariableDeclaration",
+            "scope": 12,
+            "src": "119:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "119:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 10,
+              "nodeType": "Block",
+              "src": "173:34:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 6,
+                      "name": "totalSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3,
+                      "src": "180:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31303030303030",
+                      "id": 7,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "194:7:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000_by_1",
+                        "typeString": "int_const 1000000"
+                      },
+                      "value": "1000000"
+                    },
+                    "src": "180:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9,
+                  "nodeType": "ExpressionStatement",
+                  "src": "180:21:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 11,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "164:2:0"
+            },
+            "returnParameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:0:0"
+            },
+            "scope": 12,
+            "src": "152:55:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13,
+        "src": "95:117:0"
+      }
+    ],
+    "src": "0:214:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Users/wilpa/Documents/projects/Solidity/token_sale/contracts/BaToken.sol",
+    "exportedSymbols": {
+      "BaToken": [
+        12
+      ]
+    },
+    "id": 13,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".21",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "The BaToken contract does this and that...\r",
+        "fullyImplemented": true,
+        "id": 12,
+        "linearizedBaseContracts": [
+          12
+        ],
+        "name": "BaToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 3,
+            "name": "totalSupply",
+            "nodeType": "VariableDeclaration",
+            "scope": 12,
+            "src": "119:26:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "119:7:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 10,
+              "nodeType": "Block",
+              "src": "173:34:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 8,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 6,
+                      "name": "totalSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3,
+                      "src": "180:11:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "31303030303030",
+                      "id": 7,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "194:7:0",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000000_by_1",
+                        "typeString": "int_const 1000000"
+                      },
+                      "value": "1000000"
+                    },
+                    "src": "180:21:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 9,
+                  "nodeType": "ExpressionStatement",
+                  "src": "180:21:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 11,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "164:2:0"
+            },
+            "returnParameters": {
+              "id": 5,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:0:0"
+            },
+            "scope": 12,
+            "src": "152:55:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13,
+        "src": "95:117:0"
+      }
+    ],
+    "src": "0:214:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+  },
+  "networks": {
+    "5781": {
+      "events": {},
+      "links": {},
+      "address": "0xfD0Bd855cC99b8FB5c5Fa7be243CD5B6A8FC24DE",
+      "transactionHash": "0xb1155ed7cb7a09d884aa7faf4a1759539f6ee29c5586668ffb79b4ca7de87b58"
+    }
+  },
+  "schemaVersion": "3.0.2",
+  "updatedAt": "2019-03-02T18:55:34.621Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {},
+    "notice": "The BaToken contract does this and that...\r"
+  }
+}
