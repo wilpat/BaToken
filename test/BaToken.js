@@ -55,6 +55,8 @@ contract('BaToken', (accounts) => {
 		});
 	});
 
+	
+
 	it('approves tokens for delegated transfer', () => {
 		return BaToken.deployed().then(i => {
 		 app = i;

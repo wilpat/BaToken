@@ -44,19 +44,15 @@ contract BaToken {
   // Transfer function -- compulsory in erc20
   function transfer (address _to, uint256 _value) public returns(bool res) {
 
-    // Run check
+    // Balance of sender must be >= the value being sent
     require (balanceOf[msg.sender] >= _value);
-    
     // Make transfer
     balanceOf[msg.sender] -= _value;
     balanceOf[_to] += _value;
-
     // Emit event
     emit Transfer(msg.sender, _to, _value);
-
     // Return a boolean
     return true;
-    
   }
   
   function approve (address _spender, uint256 _value) public returns(bool res) {
@@ -65,7 +61,6 @@ contract BaToken {
     allowance[msg.sender][_spender] = _value;
     //Emit the Approval event
     emit Approval(msg.sender, _spender, _value);
-
     return true;
   }
 
@@ -78,7 +73,4 @@ contract BaToken {
     allowance[_owner][msg.sender] -= _value;
     return true;
   }
-  
-  
-
 }
