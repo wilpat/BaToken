@@ -37,7 +37,7 @@ contract BaToken {
 
   constructor (uint256 _initialSupply) public{
     totalSupply = _initialSupply;
-    balanceOf[msg.sender] = _initialSupply;
+    balanceOf[msg.sender] = _initialSupply;// we gave the account that deployed this contract all the initial tokens
     // allocate the initial supply
   }
 
@@ -45,7 +45,7 @@ contract BaToken {
   function transfer (address _to, uint256 _value) public returns(bool res) {
 
     // Balance of sender must be >= the value being sent
-    require (balanceOf[msg.sender] >= _value);
+    require(balanceOf[msg.sender] >= _value, "The balance of the sender must be >= the value being sent");
     // Make transfer
     balanceOf[msg.sender] -= _value;
     balanceOf[_to] += _value;

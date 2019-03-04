@@ -120,4 +120,7 @@ contract('BaToken', (accounts) => {
 			assert.equal(allowance.toNumber(), 0, 'successfully deducts the allowance')
 		})
 	})
-})
+	// At the end of this test, 250,100 tokens had already been taken out of the admin account
+	// 250,000 to accounts[1]
+	// 10 to accounts[4]
+});
