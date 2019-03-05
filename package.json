@@ -1,0 +1,17 @@
+{
+	"name": "ba-token-sale",
+	"version": "1.0.0",
+	"description": "Ba Token Sale ICO",
+	"main": "truffle.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"dev": "lite-server"
+	},
+	"author": "William Okafor",
+	"license": "ISC",
+	"devDependencies": {
+		"lite-server": "^2.4.0"
+	}
+}
