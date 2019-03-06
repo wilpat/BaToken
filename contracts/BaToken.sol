@@ -14,6 +14,10 @@ contract BaToken {
   // Set the standard
   string public standard = 'BaToken v1.0'; // Not in erc20 standard
 
+  uint8 initial = 0;
+
+  address admin;
+
   mapping (address => uint256) public balanceOf; // Track the tokens belonging to each address that has received a transfer
   
   // Emit that a transfer happened
@@ -37,20 +41,31 @@ contract BaToken {
 
   constructor (uint256 _initialSupply) public{
     totalSupply = _initialSupply;
+    admin = msg.sender;
     balanceOf[msg.sender] = _initialSupply;// we gave the account that deployed this contract all the initial tokens
     // allocate the initial supply
   }
 
+
+
   // Transfer function -- compulsory in erc20
   function transfer (address _to, uint256 _value) public returns(bool res) {
 
+    address _sender;
+    if(initial > 0){ // If this isnt the first deployment
+      _sender = msg.sender;
+    } else { // Use the admin because this is the constructor provisioning 750k tokens to the sales contract
+      _sender = admin;
+      initial += 1;
+    }
+    require(_sender != _to, 'Sender must not be same as receiver');
     // Balance of sender must be >= the value being sent
-    require(balanceOf[msg.sender] >= _value, "The balance of the sender must be >= the value being sent");
+    require(balanceOf[_sender] >= _value, "The balance of the sender must be >= the value being sent");
     // Make transfer
-    balanceOf[msg.sender] -= _value;
+    balanceOf[_sender] -= _value;
     balanceOf[_to] += _value;
     // Emit event
-    emit Transfer(msg.sender, _to, _value);
+    emit Transfer(_sender, _to, _value);
     // Return a boolean
     return true;
   }

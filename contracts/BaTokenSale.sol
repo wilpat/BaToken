@@ -13,7 +13,7 @@ contract BaTokenSale {
 		admin = msg.sender;
 		tokenContractAddress = _tokenContractAddress;
 		tokenPrice = _tokenPrice;
-		// tokenContractAddress.transfer(address(this), 750000);
+		tokenContractAddress.transfer(address(this), 750000);
 	}
 
 	function multiply (uint x, uint y) internal pure returns(uint z) {
@@ -27,6 +27,7 @@ contract BaTokenSale {
 		require(tokenContractAddress.balanceOf(address(this)) >= _numberOfTokens, "the amount of tokens stored in this smart contract >= the requested tokens"); // the amount of tokens stored in this smart contract >= the requested tokens
 		require(tokenContractAddress.transfer(msg.sender, _numberOfTokens), "that the transfer must return true"); 
 		tokensSold += _numberOfTokens; // Increment the amount sold
+		admin.transfer(msg.value);//transfer funds
 		emit Sell(msg.sender, _numberOfTokens);
 	}
 
