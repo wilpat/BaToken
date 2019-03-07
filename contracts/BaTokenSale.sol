@@ -21,14 +21,14 @@ contract BaTokenSale {
 	}
 	
 
-	function buyTokens (uint256 _numberOfTokens) public payable {
+	function buyTokens (uint256 _numberOfTokens, address _buyer) public payable {
 
 		require(msg.value == multiply(_numberOfTokens, tokenPrice), "The amount sent should be equal to the value of the tokens in eth"); 
 		require(tokenContractAddress.balanceOf(address(this)) >= _numberOfTokens, "the amount of tokens stored in this smart contract >= the requested tokens"); // the amount of tokens stored in this smart contract >= the requested tokens
-		require(tokenContractAddress.transfer(msg.sender, _numberOfTokens), "that the transfer must return true"); 
+		require(tokenContractAddress.transfer(_buyer, _numberOfTokens), "that the transfer must return true"); 
 		tokensSold += _numberOfTokens; // Increment the amount sold
 		admin.transfer(msg.value);//transfer funds
-		emit Sell(msg.sender, _numberOfTokens);
+		emit Sell(_buyer, _numberOfTokens);
 	}
 
 	// Ending token sale

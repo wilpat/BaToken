@@ -18,6 +18,7 @@ App = {
       // If a web3 instance is already provided by Meta Mask.
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
+      window.web3 = web3;
     } else {
       // Specify default instance if no web3 instance provided
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
@@ -96,7 +97,7 @@ App = {
     let numberOfTokens = $('#numberOfTokens').val();
     App.contracts.BaTokenSale.deployed().then(i => {
       sale = i;
-      return sale.buyTokens(numberOfTokens, {
+      return sale.buyTokens(numberOfTokens,  App.account, {
         from: App.account,
         value: numberOfTokens * App.tokenPrice,
         gas: 500000

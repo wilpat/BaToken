@@ -6,3 +6,4 @@
 .secret
 .infura_rinkeby_endpoint
 .infura_ropsten_endpoint
+sec.js

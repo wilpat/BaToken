@@ -26,7 +26,7 @@ contract('BaToken', (accounts) => {
 			assert.equal(totalSupply.toNumber(), 1000000, 'sets the total supply to 1,000,000');
 			return  app.balanceOf(accounts[0])
 		}).then(adminBalance => { 
-			assert.equal(adminBalance.toNumber(), 1000000, 'It allocated the initial supply to the admin');
+			assert.equal(adminBalance.toNumber(), 250000, 'Confirms that tokens left with the admin is 250,000 from 1,000,000');
 		})
 	})
 
@@ -36,22 +36,22 @@ contract('BaToken', (accounts) => {
 		 return app.transfer.call(accounts[1], 9999999999) // .call doesnt actually create a transaction
 		}).then(assert.fail).catch(error =>{
 			assert(error.message.indexOf('revert') >= 0, 'Transfer of tokens higher than balance failed with a successful revert')
-			return app.transfer.call(accounts[1], 250000, {from: accounts[0]})
+			return app.transfer.call(accounts[1], 1000, {from: accounts[0]})
 		}).then( res => {
 			assert.equal(res, true, 'It returns true')
-			return app.transfer(accounts[1], 250000, {from: accounts[0]})
+			return app.transfer(accounts[1], 1000, {from: accounts[0]})
 		}).then(receipt => {
 			assert.equal(receipt.logs.length, 1, 'Triggers one event');
 			assert.equal(receipt.logs[0].event, 'Transfer', 'Should be the "Transfer" event');
 			assert.equal(receipt.logs[0].args._from, accounts[0], 'Logs the account that the tranfer was from');
 			assert.equal(receipt.logs[0].args._to, accounts[1], 'Logs the account that the transfer was to');
-			assert.equal(receipt.logs[0].args._value, 250000, 'Logs the transfer amount');
+			assert.equal(receipt.logs[0].args._value, 1000, 'Logs the transfer amount');
 			return app.balanceOf(accounts[1])
 		}).then(balance => {
-			assert.equal(balance.toNumber(), 250000, 'Adds exact sent token to receiver\'s balance')
+			assert.equal(balance.toNumber(), 1000, 'Adds exact sent token to receiver\'s balance')
 			return app.balanceOf(accounts[0]);
 		}).then(balance => {
-			assert.equal(balance.toNumber(), 750000, 'Deducts the sent amount from sender')
+			assert.equal(balance.toNumber(), 249000, 'Deducts the sent amount from sender')
 		});
 	});
 
@@ -67,8 +67,8 @@ contract('BaToken', (accounts) => {
 		}).then(receipt => {
 			assert.equal(receipt.logs.length, 1, 'Triggers one event');
 			assert.equal(receipt.logs[0].event, 'Approval', 'Should be the "Transfer" event');
-			assert.equal(receipt.logs[0].args._owner, accounts[0], 'Logs the account that the tranfer was from');
-			assert.equal(receipt.logs[0].args._spender, accounts[1], 'Logs the account that the transfer was to');
+			assert.equal(receipt.logs[0].args._owner, accounts[0], 'Logs the account that the approval was from');
+			assert.equal(receipt.logs[0].args._spender, accounts[1], 'Logs the account that was approved to spend the tokens');
 			assert.equal(receipt.logs[0].args._value, 100, 'Logs the transfer amount');
 			return app.allowance(accounts[0], accounts[1])
 		}).then(allowance => {
@@ -120,7 +120,7 @@ contract('BaToken', (accounts) => {
 			assert.equal(allowance.toNumber(), 0, 'successfully deducts the allowance')
 		})
 	})
-	// At the end of this test, 250,100 tokens had already been taken out of the admin account
-	// 250,000 to accounts[1]
-	// 10 to accounts[4]
+	// At the end of this test, 1,100 tokens had already been taken out of the admin account
+	// 1,000 to accounts[1]
+	// 100 to accounts[2]
 });
